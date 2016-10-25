@@ -229,7 +229,7 @@ module Sidekiq
           require 'sidekiq/rails'
           require File.expand_path("#{options[:require]}/config/environment.rb")
           ::Rails.application.eager_load!
-        elsif ::Rails::VERSION::MAJOR == 4
+        elsif ::Rails::VERSION::MAJOR >= 4
           # Painful contortions, see 1791 for discussion
           require File.expand_path("#{options[:require]}/config/application.rb")
           ::Rails::Application.initializer "sidekiq.eager_load" do
